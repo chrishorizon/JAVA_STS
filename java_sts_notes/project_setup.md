@@ -20,7 +20,6 @@
 			<artifactId>webjars-locator</artifactId>
 			<version>0.30</version>
 		</dependency>
-		
 		<!-- BOOTSTRAP DEPENDENCIES -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -34,32 +33,30 @@
 		</dependency>
 ```
 
-3.  Add on the <head> of index.jsp
-```java
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-	<script type="text/javascript" src="js/app.js"></script>
-	<!-- for Bootstrap CSS -->
-	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
-	<!-- For any Bootstrap that uses JS or jQuery-->
-	<script src="/webjars/jquery/jquery.min.js"></script>
-	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
-```
-
-4.	src/main/resources -> application.properties
+3.	src/main/resources -> application.properties
 ```java
 		spring.mvc.view.prefix=/WEB-INF/
 ```
 
-5.	src/main/java -> new package: com.horizon.projectname.controller
+4.	src/main/java -> new package: com.horizon.projectname.controller
 		- new -> class: ProjectNameController (pascal case)
 		- add @Controller above public class
 
-	src -> main -> webapp: WEB-INF (new folder)
+5. 	src -> main -> webapp: WEB-INF (new folder)
 		- index.jsp (new jsp file)
 			- change title to project name
 			- add the below tag in index.jsp
 ```java
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+	// Add this in the <head> for styling
+	<!-- for Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script type="text/javascript" src="js/app.js"></script>
+	<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<!-- For any Bootstrap that uses JS or jQuery-->
+	<script src="/webjars/jquery/jquery.min.js"></script>
+	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 ```
 
 6. src/main/java -> new package: com.horizon.projectname.models
