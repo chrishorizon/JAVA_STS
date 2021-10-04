@@ -1,25 +1,16 @@
 package com.horizon.firstproject;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/greeting")
+@Controller
 public class HomeController {
-	@RequestMapping("")
-	public String index() {
-		return "This is access view  http://your_server/simple/root";
-	}
 	
-	// 1. Annotation
-	@RequestMapping("/hello")
-	// 3. Method that maps to the request route above
-	public String hello() {
-		return "Hello World!";
+	@RequestMapping("/")
+	public String home(Model model) {
+		model.addAttribute("dojoName", "Burbank");
+		return "index.jsp";
 	}
-	
-	@RequestMapping("/goodbye")
-	public String world() {
-		return "Class level annotations are cool too!";
-	}
+
 }
