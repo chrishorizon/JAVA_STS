@@ -38,7 +38,7 @@
 		spring.mvc.view.prefix=/WEB-INF/
 ```
 
-4.	src/main/java -> new package: com.horizon.projectname.controller
+4.	src/main/java -> new package: com.horizon.projectname.controllers
 		- new -> class: ProjectNameController (pascal case)
 		- add @Controller above public class
 
