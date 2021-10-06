@@ -24,8 +24,7 @@
             <input type="hidden" name="building" value="farm" />
             <input type="submit" value="Find Gold!"/>
           </form>
-     
-        
+             
         <form class="bg-primary text-center border-secondary text-light p-5" action="/process_money" method="post">
             <h2>Cave</h2>
             <p>Earns 5-10 gold</p>
