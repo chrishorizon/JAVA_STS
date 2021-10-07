@@ -22,10 +22,10 @@
 </head>
 <body>
 	<div class="container">
-		<h1>${bk.title}</h1>
-		<h5>Description: ${bk.description}</h5>
-		<h5>Language: ${bk.language}</h5>
-		<h5>Number of Pages: ${bk.numberOfPages}</h5>
+		<h1> <c:out value="${bk.title}" /></h1>
+		<h5>Description: <c:out value="${bk.description}"/></h5>
+		<h5>Language: <c:out value="${bk.language}"/></h5>
+		<h5>Number of Pages: <c:out value="${bk.numberOfPages}"/></h5>
 	</div>
 
 </body>

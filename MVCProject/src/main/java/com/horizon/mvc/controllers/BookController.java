@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-
 import com.horizon.mvc.models.Book;
 import com.horizon.mvc.services.BookService;
 
@@ -19,7 +18,7 @@ public class BookController {
 	BookService bookService;
 	
 	// ============== Display ===============================
-	@GetMapping("/book/{bookId}")
+	@GetMapping("/books/{bookId}")
 	public String index(@PathVariable("bookId") Long bookId, Model model) {
 		
 //		System.out.println(bookId);
@@ -36,7 +35,15 @@ public class BookController {
 		return "show.jsp";
 	}
 	
-	
+	@GetMapping("/books")
+	public String showBooks(Model model) {
+		List<Book> books = bookService.allBooks();
+		model.addAttribute("books", books);
+	        
+		return "index.jsp";
+	}
+	    
+	    
 	// ============== Actions ===============================
 	
 	

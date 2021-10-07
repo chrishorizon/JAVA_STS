@@ -14,10 +14,30 @@
 <title>Books Home Page</title>
 </head>
 <body>
-
-	<h1>Hello World</h1>
-	${bk.title}
-	${bks}
+	<div class="container">
+		<h1>All Books</h1>
+		<table class="table table-striped">
+		    <thead>
+		        <tr>
+		            <th>ID</th>
+		            <th>Title</th>
+		            <th>Language</th>
+		            <th>Number of Pages</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		         <c:forEach var="bk" items="${books}">
+		         	<tr>
+		         		<td><c:out value="${bk.id}"/> </td>
+		         		<td><a href="/books/${bk.id}"><c:out value="${bk.title}"/></a></td>
+		         		<td><c:out value="${bk.language}"/></td>
+		         		<td><c:out value="${bk.numberOfPages}"/></td>
+		         	</tr>
+		         </c:forEach>
+		    </tbody>
+		</table>
+	</div>
+	
 	
 
 </body>
