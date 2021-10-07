@@ -16,7 +16,7 @@ public class BooksApi {
 	// tells that we are going to be using bookService without changing it
 	private final BookService bookService;
 	
-	// Dependency injection
+	// Dependency injection to have access to our service
 	public BooksApi(BookService bookService) {
 		this.bookService = bookService;
 	}
