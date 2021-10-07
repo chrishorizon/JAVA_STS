@@ -183,12 +183,13 @@
         - add crud methods
 ```
 
-7. Controllers:
+********* Do not use moving forawrd ***********
+7. Controllers: 
     Create inside package -> com.horizon.projectname.controllers
 ```java
 		- New class: BooksApi (pascal case)
 		- add annotation below
-			@Controller
+			@RestController
 
         @GetMapping("/")
         public String index(){
@@ -200,7 +201,29 @@
 			// ==== Action ============
 ```
 
-8. 	src -> main -> webapp: WEB-INF (new folder)
+7. Controllers:
+    Create inside package -> com.horizon.projectname.controllers
+```java
+		- New class: BookController (pascal case)
+		- add annotation below
+			@Controller
+        
+        - add dependency injection to have access to our service
+        @Autowired
+        BookService serv;
+
+        @GetMapping("/")
+        public String index(){
+            return "redirect:/dashboard";
+        }
+
+        - Create structure below
+			// ==== Display =================
+
+			// ==== Action ============
+```
+
+9. 	src -> main -> webapp: WEB-INF (new folder)
 		- dashboard.jsp (new jsp file)
 			- change title to project name
 			- add the below tag in index.jsp
