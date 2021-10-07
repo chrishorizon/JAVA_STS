@@ -183,24 +183,6 @@
         - add crud methods
 ```
 
-********* Do not use moving forawrd ***********
-7. Controllers: 
-    Create inside package -> com.horizon.projectname.controllers
-```java
-		- New class: BooksApi (pascal case)
-		- add annotation below
-			@RestController
-
-        @GetMapping("/")
-        public String index(){
-            return "redirect:/dashboard";
-        }
-
-        - Create structure below
-			// ==== Display =================
-			// ==== Action ============
-```
-
 7. Controllers:
     Create inside package -> com.horizon.projectname.controllers
 ```java
