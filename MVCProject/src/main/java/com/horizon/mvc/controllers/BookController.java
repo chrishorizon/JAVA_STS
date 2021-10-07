@@ -18,6 +18,7 @@ public class BookController {
 	@Autowired
 	BookService bookService;
 	
+	// ============== Display ===============================
 	@GetMapping("/book/{bookId}")
 	public String index(@PathVariable("bookId") Long bookId, Model model) {
 		
@@ -34,6 +35,9 @@ public class BookController {
 		
 		return "show.jsp";
 	}
+	
+	
+	// ============== Actions ===============================
 	
 	
 }

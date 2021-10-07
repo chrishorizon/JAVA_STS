@@ -228,5 +228,9 @@
 	<!-- For any Bootstrap that uses JS or jQuery-->
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+    // JSTL will be used to insert values to display in the body of your html code
+    - render information using JSTL tags
+        <c:out value="${books}" />
 ```
 
