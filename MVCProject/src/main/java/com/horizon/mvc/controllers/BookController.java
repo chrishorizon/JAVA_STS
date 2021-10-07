@@ -21,17 +21,19 @@ public class BookController {
 	@GetMapping("/book/{bookId}")
 	public String index(@PathVariable("bookId") Long bookId, Model model) {
 		
-		System.out.println(bookId);
+//		System.out.println(bookId);
 		Book book = bookService.findBook(bookId);
-		System.out.println(book);
+//		System.out.println(book);
 		
-		// variable for an array of books
+		// variable for an array of all books
 		List<Book> books = bookService.allBooks();
 		
 		// adds book to model
 		model.addAttribute("bk", book);
 		model.addAttribute("bks", books);
 		
-		return "index.jsp";
+		return "show.jsp";
 	}
+	
+	
 }
