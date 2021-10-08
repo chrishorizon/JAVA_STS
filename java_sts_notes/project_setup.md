@@ -113,11 +113,11 @@
 4. Models:
     Create inside package -> com.horizon.projectname.models
 ```java
-		New class: Book (pascal case, non-plural)
+		New class: Book (non-plural, pascal case)
 		
 		- add 2 annotations below
 			@Entity
-			@Table(name="books") (javax imports)
+			@Table(name="books") (plural, javax imports)
 		
 		- Create full model file, structure below
 			// ==== Primary Key =================
@@ -181,6 +181,15 @@
             private BookRepository repo;
 
         - add crud methods
+        // return all
+
+        // retrive one
+
+        // create
+
+        // update one by ID
+
+        // delete one by ID
 ```
 
 7. Controllers:

@@ -31,8 +31,9 @@ public class Book {
     @NotNull
     @Size(min = 5, max = 200)
     private String description;
+    
     @NotNull
-    @Size(min = 3, max = 40)
+    @Size(min = 3, max = 40, message="Language must be at least 3 characters.")
     private String language;
     @NotNull
     @Min(100)
