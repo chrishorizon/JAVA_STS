@@ -40,20 +40,9 @@ public class BookService {
     }
     
     // update book by id
-	public Book updateBook(Long id, String title, String desc, String language, Integer pages) {
+	public Book updateBook(Book b) {
 		// TODO Auto-generated method stub
-    	Optional<Book> optionalBook = bookRepo.findById(id);
-    	if(optionalBook.isPresent()) {
-    		Book book = optionalBook.get();
-    		book.setTitle(title);
-    		book.setDescription(desc);
-    		book.setLanguage(language);
-    		book.setNumberOfPages(pages);
-    		bookRepo.save(book);
-    		return book;
-        } else {
-            return null;
-        }
+		return bookRepo.save(b);
 	}
 	
 	// deletes book by id

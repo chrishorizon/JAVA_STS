@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.horizon.expensetracker.models.Expense;
 import com.horizon.expensetracker.services.ExpenseService;
@@ -28,6 +29,7 @@ public class ExpenseController {
 	}
 	
 	// ==== Display =================
+	// Render all expenses in home page
 	@GetMapping("/expenses")
 	public String home(@ModelAttribute("expense") Expense expense, Model model) {
 		List<Expense> expenses = serv.allExpenses();
@@ -35,14 +37,16 @@ public class ExpenseController {
 		return "index.jsp";
 	}
 	
-	@GetMapping("/expenses/{id}")
+	// Render one expense in edit page
+	@GetMapping("/expenses/edit/{id}")
 	public String oneExp(@PathVariable("id") Long id, Model model) {
 		Expense exp = serv.findExpense(id);
-		model.addAttribute("exp", exp);
-		return "show.jsp";
+		model.addAttribute("expense", exp);
+		return "edit.jsp";
 	}
     
 	// ==== Action ============
+	// create an expense
 	@PostMapping("/expense")
 	public String create(@Valid @ModelAttribute("expense") Expense expense, BindingResult result, Model model) {
 		if(result.hasErrors()) {
@@ -54,5 +58,16 @@ public class ExpenseController {
 			return "redirect:/expenses";
 		}
 	}
+	
+	@PutMapping("/edit/{id}")
+	public String update(@Valid @ModelAttribute("expense") Expense expense, BindingResult result) {
+		if (result.hasErrors()) {
+			return "edit.jsp";
+		} else {
+			serv.updateExpenes(expense);
+			return "redirect:/expenses";
+		}
+	}
+	
 	
 }

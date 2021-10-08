@@ -29,12 +29,13 @@
 			<h1>PokeBook</h1>
 		</div>
 		<div>
-			<table>
+			<table class="table table-bordered text-center">
 				<thead>
 				<tr>
 					<td>Expenses</td>
 					<td>Vendor</td>
 					<td>Amount</td>
+					<td>Actions</td>
 				</tr>				
 				</thead>
 				<tbody>
@@ -43,32 +44,33 @@
 							<td><c:out value="${exp.name }" /></td>
 							<td><c:out value="${exp.vendor }" /></td>
 							<td><fmt:formatNumber value="${exp.amount }" type="currency" /></td>
+							<td><a href="/expenses/edit/${exp.id}">Edit</a></td>
 						</tr>					
 					</c:forEach>				
 				</tbody>				
 			</table>
 		</div>
 		<div>
-			<h1>Track an expense:</h1>
+			<h4>Track an expense:</h4>
 			<form:form action="/expense" method="post" modelAttribute="expense">
 				<p>
 			        <form:label path="name">Expense Name:</form:label>
-			        <form:errors path="name"/>
+			        <form:errors path="name" class="text-danger"/>
 			        <form:input path="name" class="form-control"/>
 			    </p>
 			    <p>
 			        <form:label path="vendor">Vendor:</form:label>
-			        <form:errors path="vendor"/>
+			        <form:errors path="vendor" class="text-danger"/>
 			        <form:input path="vendor" class="form-control"/>
 			    </p>
 			    <p>
 			        <form:label path="amount">Amount:</form:label>
-			        <form:errors path="amount"/>
+			        <form:errors path="amount" class="text-danger"/>
 			        <form:input step="0.01" value="0.00" type="number" path="amount" class="form-control"/>
 			    </p>
 			    <p>
 			        <form:label path="description">Description</form:label>
-			        <form:errors path="description"/>     
+			        <form:errors path="description" class="text-danger"/>     
 			        <form:textarea path="description" class="form-control"/>
 			    </p>    
 			    <input type="submit" value="Submit"/>
