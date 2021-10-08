@@ -215,7 +215,7 @@
 ```
 
 9. 	src -> main -> webapp: WEB-INF (new folder)
-		- dashboard.jsp (new jsp file)
+		- index.jsp (new jsp file)
 			- change title to project name
 			- add the below tag in index.jsp
 ```java

@@ -10,7 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
-import javax.validation.constraints.Min;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -25,18 +26,22 @@ public class Expense {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-	// ==== Member Variables ============
+    // ==== Member Variables ============
+    @NotNull
+    @Size(min = 3, max = 200, message="Name must be at least 3 characters.")
+    private String name;
+    
     @NotNull
     @Size(min = 3, max = 200, message="Expense must be at least 3 characters.")
-    private String expense;
+    private String description;
     
     @NotNull
     @Size(min = 3, max = 200, message="Vendor must be at least 3 characters.")
     private String vendor;
     
-    @NotNull
-    @Min(100)
-    private Integer amount;
+    @DecimalMin("0.01")
+    @Digits(integer=2,fraction=2)
+    private double amount;
     
 	// ==== Data Creation Trackers ======
     @Column(updatable=false)
@@ -48,8 +53,9 @@ public class Expense {
     // ==== Constructors ================
     public Expense() {}
     
-	public Expense(String expense, String vendor, Integer amount) {
-		this.expense = expense;
+	public Expense(String name, String description, String vendor, double amount) {
+		this.name = name;
+		this.description = description;
 		this.vendor = vendor;
 		this.amount = amount;
 	}
@@ -73,13 +79,21 @@ public class Expense {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getExpense() {
-		return expense;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void setExpense(String expense) {
-		this.expense = expense;
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getVendor() {
@@ -90,11 +104,11 @@ public class Expense {
 		this.vendor = vendor;
 	}
 
-	public Integer getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
