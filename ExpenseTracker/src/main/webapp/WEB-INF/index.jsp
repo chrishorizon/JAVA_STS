@@ -44,7 +44,15 @@
 							<td><c:out value="${exp.name }" /></td>
 							<td><c:out value="${exp.vendor }" /></td>
 							<td><fmt:formatNumber value="${exp.amount }" type="currency" /></td>
-							<td><a href="/expenses/edit/${exp.id}">Edit</a></td>
+							<td>
+								<div class="d-flex align-items-center justify-content-center">
+									<a href="/expenses/edit/${exp.id}">Edit</a>
+									<form action="/delete/${exp.id}" method="post">
+										<input type="hidden" name="_method" value="delete">
+										<input type="submit" value="Delete" class="btn btn-info ms-5">
+									</form>
+								</div>
+							</td>
 						</tr>					
 					</c:forEach>				
 				</tbody>				
@@ -73,7 +81,7 @@
 			        <form:errors path="description" class="text-danger"/>     
 			        <form:textarea path="description" class="form-control"/>
 			    </p>    
-			    <input type="submit" value="Submit"/>
+			    <input type="submit" value="Submit" class="btn btn-success"/>
 			</form:form>
 		</div>
 	</div>

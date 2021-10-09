@@ -21,8 +21,8 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div>
-		<div class="d-flex">
+	<div class="container">
+		<div class="d-flex align-items-center justify-content-between">
 			<h1>Edit Expense</h1>
 			<a href="/expenses">Go back</a>
 		</div>
@@ -50,7 +50,7 @@
 					<form:errors path="description" class="text-danger"/>
 					<form:textarea path="description" class="form-control" />
 				</p>
-				<input type="submit" value="Submit" />
+				<input type="submit" value="Submit" class="btn btn-info"/>
 			</form:form>
 		</div>
 	</div>
