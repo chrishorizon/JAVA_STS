@@ -45,6 +45,13 @@ public class ExpenseController {
 		model.addAttribute("expense", exp);
 		return "edit.jsp";
 	}
+	
+	@GetMapping("/expenses/{id}")
+	public String details(@PathVariable("id") Long id, Model model) {
+		Expense exp = serv.findExpense(id);
+		model.addAttribute("expense", exp);
+		return "show.jsp";
+	}
     
 	// ==== Action ============
 	

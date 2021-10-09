@@ -41,7 +41,7 @@
 				<tbody>
 					<c:forEach var="exp" items="${exp}">
 						<tr>
-							<td><c:out value="${exp.name }" /></td>
+							<td><a href="/expenses/${exp.id}"><c:out value="${exp.name }" /></a></td>
 							<td><c:out value="${exp.vendor }" /></td>
 							<td><fmt:formatNumber value="${exp.amount }" type="currency" /></td>
 							<td>
