@@ -7,7 +7,7 @@
 		Description: project description
 		Package: same as Group name
 
-		Add Dependecies: Spring Web, Spring Boot DevTools, Spring JPA, MySQL
+		Add Dependecies: Spring Web, Spring Boot DevTools, Spring JPA, MySQL Driver
 
 2. Application Properties:
     src/main/resources -> application.properties
