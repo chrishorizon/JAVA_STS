@@ -36,9 +36,11 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="language" items="${languages}">
+					<c:forEach var="lang" items="${languages}">
 						<tr>
-							<td><c:out value="${language.name}" /></td>							
+							<td><c:out value="${lang.name}" /></td>
+							<td><c:out value="${lang.creator}" /></td>
+							<td><c:out value="${lang.version}" /></td>
 						</tr>
 					</c:forEach>
 				</tbody>

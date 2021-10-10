@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -34,7 +35,7 @@ public class Language {
 	private String creator;
 	
 	@NotNull
-	@Size(min = 0, message="Cannot be empty")
+	@Min(0)
 	private double version;
 	
 	// Data Creation Trackers
