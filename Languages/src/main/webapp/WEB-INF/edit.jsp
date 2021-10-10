@@ -8,7 +8,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!-- for rendering errors on PUT routes -->
 <%@ page isErrorPage="true" %>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,58 +25,34 @@
 </head>
 <body>
 	<div class="container">
-		<div>
-			<table class="table table-striped border border-2 text-center">
-				<thead>
-					<tr class="table-info">
-						<th scope="col">Name</th>
-						<th>Creator</th>
-						<th>Version</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="lang" items="${languages}">
-						<tr>
-							<td><c:out value="${lang.name}" /></td>
-							<td><c:out value="${lang.creator}" /></td>
-							<td><c:out value="${lang.version}" /></td>
-							<td>
-								<div class="d-flex align-items-center">
-									<a href="/languages/edit/${lang.id}">edit</a>
-									<form action="/languages/${lang.id}" method="post">
-										<input type="hidden" name="_method" value="delete" />
-										<input type="submit" value="delete" class="btn btn-link"/>
-									</form>
-								</div>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+		<div class="d-flex align-items-center justify-content-end">
+			<form action="/languages/${language.id}" method="post">
+				<input type="hidden" name="_method" value="delete" />
+				<input type="submit" value="Delete" class="btn btn-link"/>
+			</form>
+			<a href="/languages" class="ms-5">Dashboard</a>
 		</div>
 		<div>
-			<h3>Add Language</h3>
-			<form:form action="/languages" method="post" modelAttribute="language">
+			<form:form action="/languages/${language.id}" method="post" modelAttribute="language">
+			<input type="hidden" name="_method" value="put">
 				<p>
-					<form:label path="name">Name:</form:label>
+					<form:label path="name" >Name:</form:label>
 					<form:errors path="name" />
 					<form:input path="name" class="form-control"/>
 				</p>
 				<p>
-					<form:label path="creator">Creator:</form:label>
+					<form:label path="creator" >Creator:</form:label>
 					<form:errors path="creator" />
 					<form:input path="creator" class="form-control"/>
 				</p>
 				<p>
-					<form:label path="version">Version:</form:label>
+					<form:label path="version" >Version:</form:label>
 					<form:errors path="version" />
 					<form:input path="version" class="form-control"/>
 				</p>
-				<input type="submit" value="Submit" />
+				<input type="submit" value="Update" class="btn btn-info" />
 			</form:form>
 		</div>
-		
 	</div>
 
 </body>

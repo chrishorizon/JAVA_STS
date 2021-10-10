@@ -35,8 +35,7 @@ public class Language {
 	private String creator;
 	
 	@NotNull
-	@Min(0)
-	private double version;
+	private String version;
 	
 	// Data Creation Trackers
 	@Column(updatable=false)
@@ -50,7 +49,7 @@ public class Language {
 	
 	public Language() {}
 	
-	public Language(String name, String creator, double version) {
+	public Language(String name, String creator, String version) {
 		this.name = name;
 		this.creator = creator;
 		this.version = version;
@@ -92,11 +91,11 @@ public class Language {
 		this.creator = creator;
 	}
 
-	public double getVersion() {
+	public String getVersion() {
 		return version;
 	}
 
-	public void setVersion(double version) {
+	public void setVersion(String version) {
 		this.version = version;
 	}
 

@@ -8,9 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.horizon.languages.models.Language;
 import com.horizon.languages.services.LanguageService;
@@ -28,6 +31,7 @@ public class LanguageController {
 	
 	// ==== Display =================
 	
+	// Renders all on home page
 	@GetMapping("/languages")
 	// Model model sends the data to the JSP
 	public String home(@ModelAttribute("language") Language language, Model model) {
@@ -39,10 +43,19 @@ public class LanguageController {
 		// language is the value name for the array list created
 		model.addAttribute("languages", lang);
 		return "index.jsp";
-	}	
+	}
 	
-
-	// ==== Action ============
+	// Show one to edit
+	@GetMapping("/languages/edit/{id}")
+	public String editLang(@PathVariable("id") Long id, Model model) {
+		Language lang = serv.oneLanguage(id);
+		model.addAttribute("language", lang);
+		return "edit.jsp";
+	}
+	
+	// ===================== Action ===================
+	
+	// Create one
 	@PostMapping("/languages")
 	public String createLang(@Valid @ModelAttribute("language") Language language, BindingResult result, Model model) {
 		if(result.hasErrors()) {
@@ -51,6 +64,24 @@ public class LanguageController {
 			return "index.jsp";
 		} else {
 			serv.createLanguage(language);
+			return "redirect:/languages";
+		}
+	}
+	
+	// Delete one
+	@DeleteMapping("/languages/{id}")
+	public String deleteLang(@PathVariable("id") Long id) {
+		serv.deleteLanguage(id);
+		return "redirect:/languages";
+	}
+	
+	// Update one
+	@PutMapping("/languages/{id}")
+	public String updateLang(@Valid @ModelAttribute("language") Language lan, BindingResult result) {
+		if(result.hasErrors()) {
+			return "edit.jsp";
+		} else {
+			serv.createLanguage(lan);
 			return "redirect:/languages";
 		}
 	}
