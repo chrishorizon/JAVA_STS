@@ -24,7 +24,49 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1>Hello World</h1>
+	<div class="container">
+		<div>
+			<table class="table table-striped border border-2 text-center">
+				<thead>
+					<tr class="table-info">
+						<th scope="col">Name</th>
+						<th>Creator</th>
+						<th>Version</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach var="language" items="${languages}">
+						<tr>
+							<td><c:out value="${language.name}" /></td>							
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+		</div>
+		<div>
+			<h3>Add Language</h3>
+			<form:form action="/languages" method="post" modelAttribute="language">
+				<p>
+					<form:label path="name">Name:</form:label>
+					<form:errors path="name" />
+					<form:input path="name" />
+				</p>
+				<p>
+					<form:label path="creator">Creator:</form:label>
+					<form:errors path="creator" />
+					<form:input path="creator" />
+				</p>
+				<p>
+					<form:label path="version">Version:</form:label>
+					<form:errors path="version" />
+					<form:input path="version" />
+				</p>
+				<input type="submit" value="Submit" />
+			</form:form>
+		</div>
+		
+	</div>
 
 </body>
 </html>

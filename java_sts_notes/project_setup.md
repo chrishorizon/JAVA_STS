@@ -132,6 +132,8 @@
             @DateTimeFormat(pattern="yyyy-MM-dd")
             private Date updatedAt;
 			// ==== Constructors ================
+            public Book() {}
+            
 			// ==== Data Creation Event =========
             @PrePersist
             protected void onCreate(){

@@ -46,6 +46,9 @@ public class Language {
 	private Date updatedAt;
 
 	// Constructors
+	
+	public Language() {}
+	
 	public Language(String name, String creator, double version) {
 		this.name = name;
 		this.creator = creator;
