@@ -124,13 +124,16 @@
             @Id
             @GeneratedValue(strategy = GenerationType.IDENTITY)
             private Long id;
+
 			// ==== Member Variables ============
+
 			// ==== Data Creation Trackers ======
             @Column(updatable=false)
             @DateTimeFormat(pattern="yyyy-MM-dd")
             private Date createdAt;
             @DateTimeFormat(pattern="yyyy-MM-dd")
             private Date updatedAt;
+
 			// ==== Constructors ================
             public Book() {}
             
@@ -143,6 +146,7 @@
             protected void onUpdate(){
                 this.updatedAt = new Date();
             }
+            
 			// ==== Getters and Setters =========
 ```
 
