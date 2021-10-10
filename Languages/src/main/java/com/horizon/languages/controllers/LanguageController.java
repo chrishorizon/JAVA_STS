@@ -49,8 +49,16 @@ public class LanguageController {
 	@GetMapping("/languages/edit/{id}")
 	public String editLang(@PathVariable("id") Long id, Model model) {
 		Language lang = serv.oneLanguage(id);
-		model.addAttribute("language", lang);
+		model.addAttribute("lange", lang);
 		return "edit.jsp";
+	}
+	
+	// Renders one in Show page
+	@GetMapping("/languages/{id}")
+	public String showLang(@PathVariable("id") Long id, Model model) {
+		Language lang = serv.oneLanguage(id);
+		model.addAttribute("langs", lang);
+		return "show.jsp";
 	}
 	
 	// ===================== Action ===================

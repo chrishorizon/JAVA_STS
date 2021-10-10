@@ -33,7 +33,7 @@
 			<a href="/languages" class="ms-5">Dashboard</a>
 		</div>
 		<div>
-			<form:form action="/languages/${language.id}" method="post" modelAttribute="language">
+			<form:form action="/languages/${language.id}" method="post" modelAttribute="lange">
 			<input type="hidden" name="_method" value="put">
 				<p>
 					<form:label path="name" >Name:</form:label>

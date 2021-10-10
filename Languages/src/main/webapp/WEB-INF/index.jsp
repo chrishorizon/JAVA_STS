@@ -38,7 +38,7 @@
 				<tbody>
 					<c:forEach var="lang" items="${languages}">
 						<tr>
-							<td><c:out value="${lang.name}" /></td>
+							<td><a href="/languages/${lang.id}"><c:out value="${lang.name}" /></a></td>
 							<td><c:out value="${lang.creator}" /></td>
 							<td><c:out value="${lang.version}" /></td>
 							<td>
