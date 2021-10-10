@@ -12,15 +12,15 @@
 2. Application Properties:
     src/main/resources -> application.properties
 ```java
-		spring.mvc.view.prefix=/WEB-INF/
-		// Data Persistence
-		spring.datasource.url=jdbc:mysql://localhost:3306/<<YOUR_SCHEMA_NAME>>
-		spring.datasource.username=root
-		spring.datasource.password=root
-		spring.datasource.driver-class-name=com.mysql.jdbc.Driver
-		spring.jpa.hibernate.ddl-auto=update
-		// For Update and Delete method hidden inputs
-		spring.mvc.hiddenmethod.filter.enabled=true
+    spring.mvc.view.prefix=/WEB-INF/
+    // Data Persistence
+    spring.datasource.url=jdbc:mysql://localhost:3306/<<YOUR_SCHEMA_NAME>>
+    spring.datasource.username=root
+    spring.datasource.password=root
+    spring.datasource.driver-class-name=com.mysql.jdbc.Driver
+    spring.jpa.hibernate.ddl-auto=update
+    // For Update and Delete method hidden inputs
+    spring.mvc.hiddenmethod.filter.enabled=true
 ```
 
 3. Create new schema in MySQL
