@@ -24,6 +24,20 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+		<div>
+			<form:form action="/licenses" method="post">
+				<form:select path="person">
+					<c:forEach var="onePerson" items="${persons}">
+						<!--- Each option VALUE is the id of the person --->
+						<form:option value="${onePerson.id}" path="person">
+							<!--- This is what shows to the user as the option --->
+							<c:out value="${onePerson.firstName}" />
+							<c:out value="${onePerson.lastName}" />
+						</form:option>
+					</c:forEach>
+				</form:select>
+			</form:form>
+		</div>
 
 </body>
 </html>
