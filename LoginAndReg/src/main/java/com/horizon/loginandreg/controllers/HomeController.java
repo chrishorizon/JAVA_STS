@@ -26,7 +26,7 @@ public class HomeController {
 	@GetMapping("/")
 	public String index(Model model, HttpSession session) {
 		if (session.getAttribute("user_id") != null) {
-			return "redirect:/dashboard";
+			return "redirect:/home";
 		}
 		model.addAttribute("newUser", new User());
 		model.addAttribute("newLogin", new LoginUser());
@@ -40,7 +40,7 @@ public class HomeController {
 			return "redirect:/";
 		}
 		User user = userServ.getOne(id);
-		model.addAttribute("user", user);
+		model.addAttribute("loggedInUser", user);
 		return "dashboard.jsp";
 	}
 

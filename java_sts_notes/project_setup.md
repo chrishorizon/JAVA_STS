@@ -127,6 +127,8 @@ spring.mvc.hiddenmethod.filter.enabled=true
 
 			// ==== Member Variables ============
 
+            // ==== Relationships ===============
+
 			// ==== Data Creation Trackers ======
             @Column(updatable=false)
             @DateTimeFormat(pattern="yyyy-MM-dd")
