@@ -24,7 +24,7 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container d-flex justify-content-evenly mt-3">
 		<div>
 			<h1>Register</h1>
 			<form:form action="/register" method="post" modelAttribute="newUser">
@@ -48,7 +48,7 @@
 					<form:password path="confirm" class="form-control" />
 					<form:errors path="confirm" class="text-danger" />
 				</div>
-				<input type="submit" value="Register" class="btn btn-primary" />
+				<input type="submit" value="Register" class="btn btn-primary mt-2" />
 			</form:form>
 		</div>
 		<div>
@@ -64,7 +64,7 @@
 					<form:password path="password" class="form-control" />
 					<form:errors path="password" class="text-danger" />
 				</div>
-				<input type="submit" value="Login" class="btn btn-success" />
+				<input type="submit" value="Login" class="btn btn-success mt-2" />
 			</form:form>
 		</div>
 		

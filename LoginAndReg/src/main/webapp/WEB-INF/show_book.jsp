@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!-- c:out ; c:forEach etc. -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!-- Formatting (dates) -->
@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Dashboard Home Page</title>
+	<title>Insert title here</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -26,34 +26,15 @@
 <body>
 	<div class="container mt-3">
 		<div class="d-flex align-items-center justify-content-between">
-			<h1>Welcom, <c:out value="${loggedInUser.userName}" /></h1>
-			<a href="/logout">Logout</a>
+			<h1><c:out value="${book.title}" /></h1>
+			<a href="/home">back to the book shelves</a>
 		</div>
-		<div class="d-flex justify-content-between">
-			<p>Books from everyone's shelves:</p>
-			<a href="/books/new">+Add a book to my shelf</a>
+		<div class="mt-5">
+			<p><c:out value="${book.creator.userName}"/> read <c:out value="${book.title}"/> by <c:out value="${book.author}"/>.</p>
+			<p>Here are <c:out value="${book.creator.userName}"/>'s thoughts:</p>
 		</div>
 		<div>
-			<table class="table table-bordered text-center">
-				<thead>
-					<tr>
-						<th>ID</th>
-						<th>Title</th>
-						<th>Author Name</th>
-						<th>Posted By</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach var="bk" items="${allBooks}">
-						<tr>
-							<td><c:out value="${bk.id}"/></td>
-							<td><a href="/books/${bk.id}"><c:out value="${bk.title}"/></a></td>
-							<td><c:out value="${bk.author}" /></td>
-							<td><c:out value="${bk.creator.userName}" /></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+			<span class="border-top border-4"><c:out value="${book.thoughts}"/></span>
 		</div>
 	
 	</div>

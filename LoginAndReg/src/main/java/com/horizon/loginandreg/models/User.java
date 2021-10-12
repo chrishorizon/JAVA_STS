@@ -2,19 +2,22 @@ package com.horizon.loginandreg.models;
 
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -46,6 +49,9 @@ public class User {
     @Size(min = 8, max = 128, message="Confirm password must be between 8 and 128 characters")
     private String confirm;
     
+    // ==== Relationships ===============
+    @OneToMany(mappedBy="creator", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Book> books;
 
 	// ==== Data Creation Trackers ======
     @Column(updatable=false)
@@ -130,6 +136,14 @@ public class User {
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 
 }

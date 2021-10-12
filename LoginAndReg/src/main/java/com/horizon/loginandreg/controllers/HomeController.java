@@ -1,8 +1,11 @@
 package com.horizon.loginandreg.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,8 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.horizon.loginandreg.models.Book;
 import com.horizon.loginandreg.models.LoginUser;
 import com.horizon.loginandreg.models.User;
+import com.horizon.loginandreg.services.BookService;
 import com.horizon.loginandreg.services.UserService;
 
 @Controller
@@ -21,6 +26,9 @@ public class HomeController {
 	public HomeController(UserService u) {
 		this.userServ = u;
 	}
+	
+	@Autowired
+	private BookService bookServ;
 	
 	// ==== Display =================
 	@GetMapping("/")
@@ -40,6 +48,9 @@ public class HomeController {
 			return "redirect:/";
 		}
 		User user = userServ.getOne(id);
+		List<Book> allBooks = bookServ.allBooks();
+		
+		model.addAttribute("allBooks", allBooks);
 		model.addAttribute("loggedInUser", user);
 		return "dashboard.jsp";
 	}
