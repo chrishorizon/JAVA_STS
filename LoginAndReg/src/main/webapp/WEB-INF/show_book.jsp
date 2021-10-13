@@ -36,6 +36,7 @@
 		<div>
 			<span class="border-top border-4"><c:out value="${book.thoughts}"/></span>
 		</div>
+		<a href="/books/${book.id}/edit">Edit</a>		
 	
 	</div>
 </body>
