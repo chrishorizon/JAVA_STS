@@ -48,10 +48,11 @@ public class HomeController {
 			return "redirect:/";
 		}
 		User user = userServ.getOne(id);
-		List<Book> allBooks = bookServ.allBooks();
-		
-		model.addAttribute("allBooks", allBooks);
 		model.addAttribute("loggedInUser", user);
+		
+		List<Book> allBooks = bookServ.allBooks();
+		model.addAttribute("allBooks", allBooks);
+		
 		return "dashboard.jsp";
 	}
 

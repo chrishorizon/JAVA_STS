@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Edit Book</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -23,10 +23,7 @@
 	<script src="/webjars/jquery/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
-<body>
-	<!-- <h1>${book.title}</h1>
-	<h1>${user.userName}</h1>  -->
-	
+<body>	
 	<div class="container mt-3">
 		<div class="d-flex align-items-center justify-content-between">
 			<h1>Change your Entry</h1>

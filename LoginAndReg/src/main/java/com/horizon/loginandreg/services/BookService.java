@@ -36,5 +36,8 @@ public class BookService {
     // update one by ID
 
     // delete one by ID
+	public void deleteBook(Long id) {
+		bookRepo.deleteById(id);
+	}
 
 }

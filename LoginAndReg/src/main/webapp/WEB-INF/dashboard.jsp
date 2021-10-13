@@ -41,6 +41,7 @@
 						<th>Title</th>
 						<th>Author Name</th>
 						<th>Posted By</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -50,6 +51,14 @@
 							<td><a href="/books/${bk.id}"><c:out value="${bk.title}"/></a></td>
 							<td><c:out value="${bk.author}" /></td>
 							<td><c:out value="${bk.creator.userName}" /></td>
+							<td>
+								<c:if test="${loggedInUser.id == bk.creator.id }" >
+									<form action="/books/${bk.id}/delete" method="post">
+										<input type="hidden" name="_method" value="delete" />
+										<input type="submit" value="Delete" class="btn btn-link" />
+									</form>
+								</c:if>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

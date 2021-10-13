@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Create Book</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>

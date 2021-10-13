@@ -13,7 +13,7 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-	<title>Insert title here</title>
+	<title>Display Book</title>
 	<!-- for CSS styling-->
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<script type="text/javascript" src="js/app.js"></script>
@@ -36,8 +36,9 @@
 		<div>
 			<span class="border-top border-4"><c:out value="${book.thoughts}"/></span>
 		</div>
-		<a href="/books/${book.id}/edit">Edit</a>		
-	
+		<c:if test="${loggedInUser.id == book.creator.id}" >
+			<a href="/books/${book.id}/edit">Edit</a>
+		</c:if>
 	</div>
 </body>
 </html>
